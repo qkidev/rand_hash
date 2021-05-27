@@ -7,9 +7,6 @@ contract rand{
     address public owner;
 
     address public previousAddress;
-    
-    bytes32 salt = "random";
-    
     constructor() payable
     {
         owner = msg.sender;
@@ -21,14 +18,8 @@ contract rand{
         
         previousAddress = msg.sender;
         randNonce++;
-        bytes32 random_hash = keccak256(abi.encodePacked(salt,msg.sig , msg.sender, randNonce, blockhash(block.number -1),previousAddress));
+        bytes32 random_hash = keccak256(abi.encodePacked(msg.sig , msg.sender, randNonce, blockhash(block.number -1),previousAddress));
         return random_hash;
-    }
-    
-    
-    function setSalt(string memory newSalt) public{
-        require(msg.sender == owner);
-		salt = keccak256(abi.encodePacked(newSalt));
     }
 
     // transfer balance to owner
