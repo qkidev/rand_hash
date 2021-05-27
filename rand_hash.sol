@@ -2,7 +2,7 @@
 pragma solidity ^0.7.5;
 
 contract rand{
-    uint256 randNonce = 0;
+    uint256 public randNonce = 0;
     
     address public owner;
 
