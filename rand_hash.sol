@@ -27,19 +27,19 @@ contract rand{
     
     
     function setSalt(string memory newSalt) public{
-        require(msg.sender == owner) 
-		salt = keccak256(abi.encodePacked(newSalt)) ;
+        require(msg.sender == owner);
+		salt = keccak256(abi.encodePacked(newSalt));
     }
 
     // transfer balance to owner
 	function withdraw(uint256 amount) public {
-		require(msg.sender == owner) 
+		require(msg.sender == owner);
 		msg.sender.transfer(amount);
 	}
 	
 	//转移所有者 
 	function setOwner(address newOwner) public{
-	    require(msg.sender == owner) 
+	    require(msg.sender == owner);
 		owner = newOwner;
 	}
 }
