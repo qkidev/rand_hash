@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: SimPL-2.0
-pragma solidity ^0.7.5;
+pragma solidity ^0.8.4;
 
 contract rand{
     uint256 public randNonce = 0;
@@ -25,7 +25,7 @@ contract rand{
     // transfer balance to owner
 	function withdraw(uint256 amount) public {
 		require(msg.sender == owner);
-		msg.sender.transfer(amount);
+		payable(msg.sender).transfer(amount);
 	}
 	
 	//转移所有者 

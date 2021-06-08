@@ -9,7 +9,7 @@ interface  rand_hash {
     function random() external returns (bytes32);
 }
 
-bytes32 rand = rand_hash("地址").random()
+bytes32 rand = rand_hash("地址").random();
 
 uint random = uint(rand)%100;
 ```
